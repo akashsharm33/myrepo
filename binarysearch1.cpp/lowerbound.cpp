@@ -17,5 +17,5 @@ int main(){
     else if(arr[mid]<x)lo=mid+1;
     else hi=mid-1;
  }
- if(flag==false)cout<<arr[hi];
+ if(flag==false)cout<<arr[hi];//lower bound mein arr[hi] upperbound mein arr[low];
 }

@@ -10,7 +10,7 @@ int main(){
  while(lo<=hi){
     int mid=lo+(hi-lo)/2;
     if(arr[mid]==x){
-       if(arr[mid-1]!=x){
+       if(arr[mid+1]!=x){
         flag=true;
         cout<<mid;
         break;
