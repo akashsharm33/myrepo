@@ -31,13 +31,13 @@ void mergesort(vector<int>&v){
    mergesort(a);
    mergesort(b);
    merge(a,b,v);
-   a.clear();
+   a.clear();//to free up the space
    b.clear();
 }
 int main(){
    int arr[]={33,22,1,0,9,7};
    int n=sizeof(arr)/sizeof(arr[0]);
-   vector<int>v(arr,arr+n);//used for printing; copy paste of array
+   vector<int>v(arr,arr+n);//used for printing; copy paste of array in the vector;
    for(int i=0;i<v.size();i++){
     cout<<v[i]<<" ";
    }
