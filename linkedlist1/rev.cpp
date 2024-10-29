@@ -5,38 +5,111 @@ class Node{
     int val;
     Node*next;
     Node(int val){
-     this->val=val;
-     this->next=NULL;
+        this->val=val;
+        this->next=NULL;
+
     }
 };
-void display(Node*head){
+class LinkedList{
+    public:
+   Node*head;
+   Node*tail;
+   int size;
+   LinkedList(){
+    head=tail=NULL;
+    size=0;
+   } 
+   void insertattail(int val){
+    Node*temp=new Node(val);
+    if(size==0)head=tail=temp;
+    else{
+        tail->next=temp;
+        tail=temp;
+    }
+    size++;
+   }
+   void display(){
     Node*temp=head;
     while(temp!=NULL){
         cout<<temp->val<<" ";
         temp=temp->next;
-
     }
     cout<<endl;
+   }
+   void insertathead(int val){
+    Node*temp=new Node(val);
+if(size==0)head=tail=temp;
+else{
+    temp->next=head;
+    head=temp;
+
 }
-int size(Node*head){
-     Node*temp=head;
-     int n=0;
-    while(temp!=NULL){
-        temp=temp->next;
-        n++;
+size++;
+   }
+   void insertatidx(int idx,int val){
+    if(idx<0||idx>=size){
+        cout<<"invalid index";
+    }
+    else if(idx==0)insertathead(val);
+    else if(idx==size)insertattail(val);
+    else{
+        Node*t=new Node(val);
+        Node*temp=head;
+        for(int i=1;i<=idx-1;i++){
+            temp=temp->next;
+        }
+        t->next=temp->next;
+        temp->next=t;
 
     }
-    return n;
-
-}
+    size++;
+   }
+   void deleteathead(){
+       if(size==0){
+        cout<<"list is empty bro ";
+       }
+       head=head->next;
+       size--;
+   }
+   void deleteattail(){
+    if(size==0)cout<<"empty";
+    else{
+        Node*temp=head;
+        while(temp->next!=tail){
+            temp=temp->next;
+        }
+        temp->next=NULL;
+        tail=temp;
+        size--;
+    }
+   }
+   void deleteatidx(int idx){
+    if(idx<0||idx>=size)cout<<"invalid index";
+    else if(idx==0)deleteathead();
+    else if(idx==size-1)deleteattail();
+    else{
+        Node*temp=head;
+        for(int i=1;i<=idx-1;i++){
+            temp=temp->next;
+        }
+        temp->next=temp->next->next;
+        size--;
+    }
+    
+   }
+};
 int main(){
-    Node*a=new Node(10);
-    Node*b=new Node(20);
-    Node*c=new Node(30);
-    Node*d=new Node(40);
-    a->next=b;
-    b->next=c;
-    c->next=d;
-    display(a);
-    cout<<size(a);
+    LinkedList ll;
+    ll.insertattail(48);
+    ll.display();
+    ll.insertathead(11);
+     ll.display();
+     ll.insertatidx(1,44);
+      ll.display();
+      ll.deleteathead();
+       ll.display();
+       ll.deleteattail();
+       ll.display();
+       ll.deleteatidx(0);
+        ll.display();
 }
