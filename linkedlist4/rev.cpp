@@ -4,26 +4,29 @@ class Node{//user defined dta type
     public:
     int val;
     Node*next;
+    Node*prev;
     Node(int val){
         this->val=val;
         this->next=NULL;
+        this->prev=NULL;
 
     }
 };
-class Linkedlist{//user defined data structure;
+class DLL{//user defined data structure;
 public:
 Node*head;
 Node*tail;
-int size;
-LinkedList(){
+int size=0;
+DLL(){
 head=tail=NULL;
 size=0;
 }
-void insertatend(int val){
+void insertattail(int val){
 Node*temp=new Node(val);
 if(size==0)head=tail=temp;
 else{
     tail->next=temp;
+    temp->prev=tail;
     tail=temp;
 }
 size++;
@@ -33,6 +36,7 @@ Node*temp=new Node(val);
 if(size==0)head=tail=temp;
 else{
     temp->next=head;
+    head->prev=temp;
     head=temp;
 }
 size++;
@@ -45,7 +49,7 @@ if(idx<0||idx>size){
 else if(idx==0){insertathead(val);
 
 }
-else if(idx==size-1){insertatend(val);
+else if(idx==size-1.){insertattail(val);
 }
 else{
    Node*t=new Node(val);
@@ -56,6 +60,8 @@ else{
    }
    t->next=temp->next;
    temp->next=t;
+   t->prev=temp;
+   t->next->prev=t;
    size++;
 }
 
@@ -71,6 +77,7 @@ void display(){
 void deleteathead(){
     if(size==0)cout<<"empty";
     head=head->next;
+    head->prev=NULL;
     size--;
 }
 int getidx(int idx){
@@ -96,8 +103,10 @@ void deleteattail(){
     while(temp->next!=tail){
         temp=temp->next;
     }
+    temp=tail->prev;
     temp->next=NULL;
     tail=temp;
+
     size--;
 }
 void deleteatidx(int idx){
@@ -114,29 +123,28 @@ void deleteatidx(int idx){
 
    }
    temp->next=temp->next->next;
+   temp->next->prev=temp;
    size--;
     }
 }
 
 };
 int main(){
-    Linkedlist ll;
-    
-    ll.insertatend(10);
-    ll.display();
-    ll.insertatend(20);
+    DLL list;
+    list.insertattail(10);
+     list.insertattail(20);
+      list.insertattail(30);
+       list.insertattail(40);
+       list.display();
+       list.insertathead(11);
+       list.display();
+       list.insertatidx(2,12);
+       list.display();
+       list.deleteathead();
+       list.display();
+       list.deleteattail();
+       list.display();
+       list.deleteatidx(1);
+       list.display();
 
-    ll.display();
-     ll.insertathead(22);
-     ll.display();
-    //cout<<ll.size;
-    ll.insertatidx(2,80);
-    ll.display();
-    //cout<<ll.getidx(3)<<endl;
-    ll.deleteathead();
-     ll.display();
-     ll.deleteattail();
-     ll.display();
-     ll.deleteatidx(1);
-     ll.display();
 }
