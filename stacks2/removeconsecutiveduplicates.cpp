@@ -9,7 +9,8 @@ for(int i=1;i<s.length();i++){
     if(s[i]!=st.top()){
         st.push(s[i]);
     }
-    s=" ";
+}
+    s="";
     while(st.size()>0){
         s+=st.top();
         st.pop();
@@ -18,7 +19,7 @@ for(int i=1;i<s.length();i++){
     return s;
     
 }
-}
+
 
 
 int main(){
