@@ -29,7 +29,7 @@ vector<int>arr(26,0);
  for(int i=0;i<s.length();i++){
     char ch=s[i];
     int ascii=(int)ch;
-    arr[ascii-97]++;
+    arr[ascii-97]++;//atbthis
  }
  int mx=0;
  for(int i=0;i<26;i++){

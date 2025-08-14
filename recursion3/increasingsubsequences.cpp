@@ -20,7 +20,7 @@ printsubset(arr,n,idx+1,ans,k);
 }
 int main(){
 int arr[]={1,2,3,4,5};
-int n=3;
+int n=5;
 int k=3;
 vector<int>v;
 printsubset(arr,n,0,v,k);

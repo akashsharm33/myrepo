@@ -1,30 +1,16 @@
 #include<iostream>
-#include<string>
-#include<vector>
 #include<algorithm>
 using namespace std;
 int main(){
-int n;
-cout<<"enter number of elements you want to have in your array";
-cin>>n;
-int arr[n];
-for(int i=0;i<n;i++){
-    cin>>arr[i];
-}
-for(int i=0;i<n;i++){
-    bool flag=true;
-    for(int j=0;j<n-1-i;j++){
-        if(arr[j]>arr[j+1]){
-            swap(arr[j],arr[j+1]);
-        }
+  string s;
+  getline(cin,s);
+  string str;
+   for(int i=0;i<s.size();i++){
+    if(s[i]>='X'){
+        str.push_back(s[i]);
     }
-    if(flag==true){
-        break;
-    }
+   }
+   sort(str.begin(),str.end());
+   cout<<str;
 
-}
-    
-    for(int i=0;i<n;i++){
-    cout<<arr[i]<<" ";
-}
 }

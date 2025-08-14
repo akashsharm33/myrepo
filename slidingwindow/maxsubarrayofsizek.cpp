@@ -7,20 +7,20 @@ int main(){
     int k=4;
     int maxsum=INT_MIN;
     int maxidx=0;
-    int prevsum=0;
+    int sum=0;
     for(int i=0;i<k;i++){
-        prevsum+=arr[i];
+        sum+=arr[i];
     }
-    maxsum=prevsum;
+    maxsum=sum;
     int i=1;
     int j=k;
     while(j<n){
-        int currsum=prevsum+arr[j]+arr[i-1];
-        if(maxsum<currsum){
-            maxsum=currsum;
+        int sum=sum+arr[j]-arr[i-1];
+        if(maxsum<sum){
+            maxsum=sum;
             maxidx=i;
         }
-        prevsum=currsum;
+        
         i++;
         j++;
     }

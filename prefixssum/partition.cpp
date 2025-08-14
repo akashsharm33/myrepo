@@ -14,7 +14,7 @@ int main(){
             break;
         }
     }
-    if(idx!=-1)cout<<"yes";
+    if(idx!=-1)cout<<"yes it can be partitioned at index"<<idx;
     else cout<<"cannot be partionned";
 
 }

@@ -3,7 +3,7 @@ using namespace std;
 int main(){
     int arr[9]={1,2,4,5,9,15,18,21,24};
     int n=9;
-    int x=8;
+    int x=21;
  int lo=0;
  int hi=n-1;
  bool flag=false;

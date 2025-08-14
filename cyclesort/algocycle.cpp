@@ -13,4 +13,7 @@ int main(){
         if(i==correctidx)i++;
         else swap(arr[i],arr[correctidx]);
     } 
+      for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
 }

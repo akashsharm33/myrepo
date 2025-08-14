@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int arr[]={1,2,3,4,5};//O(n)
+    int arr[]={0,1,2,4,5};//O(n)
     int n=5;
     // for(int i=0;i<n;i++){
     //     if(i!=arr[i])cout<<i;

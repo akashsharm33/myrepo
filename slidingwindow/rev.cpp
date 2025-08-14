@@ -1,30 +1,44 @@
 #include<iostream>
-#include<climits>
 using namespace std;
 int main(){
-    int arr[]={7,8,9,5,3,2,66};
-    int n=sizeof(arr)/sizeof(arr[0]);
-    int maxsum=INT_MIN;
-    int maxidx=0;
-    int prevsum=0;
-    int k=4;
-    for(int i=0;i<k;i++){
-        prevsum+=arr[i];
+  int arr[]={2,-3,4,4,-7,-1,4,-2,6};
+  int n=sizeof(arr)/sizeof(arr[0]);
+  int k=4;
+  int p=-1;
+  for(int i=0;i<n;i++){
+    cout<<arr[i]<<" ";
+  }
+  cout<<endl;
+  int ans[n-k+1];
+  for(int i=0;i<k;i++){
+    if(arr[i]<0){
+      p=i;
+      break;
     }
-    maxsum=prevsum;
-    int i=1;
-    int j=k;
-    while(j<n){
-        int currsum=prevsum+arr[j]-arr[i-1];
-        if(maxsum<currsum){
-            maxsum=currsum;
-            maxidx=i;
+  }
+  if(p==-1)arr[0]=-1;
+  else arr[0]=arr[p];
+  int i=1;
+  int j=k;
+  while(j<n){
+    if(p>=i)ans[i]=arr[p];
+    else{
+      p=-1;
+      for(int x=i;x<=j;x++){
+        if(arr[x]<0){
+          p=x;
+          break;
         }
-        prevsum=currsum;
-        i++;
-        j++;
-
+      }
+      if(p!=-1)ans[i]=arr[p];
+      else ans[i]=1;
     }
-    cout<<maxsum<<endl;
-    cout<<maxidx<<" ";
+    i++;
+    j++;
+  }
+  for(int i=0;i<n-k+1;i++){
+    cout<<ans[i]<<" ";
+  }
+
+
 }

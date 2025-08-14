@@ -1,10 +1,11 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 int partition(int arr[],int si,int ei){
     int pivotele=arr[si];
     int count=0;
     for(int i=si+1;i<=ei;i++){
-      if(arr[i]<pivotele)count++;
+        if(arr[i]<=pivotele)count++;
     }
     int pivotidx=count+si;
     swap(arr[si],arr[pivotidx]);
@@ -26,10 +27,9 @@ void quicksort(int arr[],int si,int ei){
     int pi=partition(arr,si,ei);
     quicksort(arr,si,pi-1);
     quicksort(arr,pi+1,ei);
-
 }
 int main(){
-    int arr[]={22,11,3,4,5};
+    int arr[]={33,22,11,6,7,8};
     int n=sizeof(arr)/sizeof(arr[0]);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";

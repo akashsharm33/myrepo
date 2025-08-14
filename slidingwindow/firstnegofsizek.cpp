@@ -8,8 +8,8 @@ int main(){
     
    int p=-1;
    int ans[n-k+1];
-    for(int i=0;i<n+k-1;i++){
-            cout<<ans[i]<<" ";
+    for(int i=0;i<n;i++){
+            cout<<arr[i]<<" ";
         }
         cout<<endl;
     for(int i=0;i<k;i++){
@@ -18,8 +18,8 @@ int main(){
         break;
        }
     }
-    if(p==-1)ans[0]=1;
-    else ans[0]=p;
+   if(p==-1)ans[0]=1;//p==-1 means no prev negative element here 
+    else ans[0]=arr[p];
   //sliding window;
     int i=1;
     int j=k;
@@ -27,7 +27,7 @@ int main(){
        
           if(p>=i)ans[i]=arr[p];
           else{
-            
+            p=-1;
             for(int x=i;x<=j;x++){
                 if(arr[x]<0){
                     p=x;
@@ -40,7 +40,7 @@ int main(){
           i++;
           j++;
         }
-        for(int i=0;i<n+k-1;i++){
+        for(int i=0;i<n-k+1;i++){
             cout<<ans[i]<<" ";
         }
         

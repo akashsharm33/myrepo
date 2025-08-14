@@ -1,24 +1,18 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int arr[]={0,11,22,33,44,56};
-    int n=6;
-    int x=23;
-    int lo=0;
-    int hi=n-1;
-    bool flag=false;
-    while(lo<=hi){
-        int mid=lo+(hi-lo)/2;
-        if(arr[mid]==x){
-            flag=true;
-            cout<<arr[mid-1];
-            break;
-        }
-        else if(arr[mid]<x)lo=mid+1;
-        else hi=mid-1;
-
-
+   int arr[5]={0,1,3,4,5};
+   int n=5;
+   int lo=0;
+   int hi=n-1;
+   int ans=-1;
+   while(lo<=hi){
+    int mid=lo+(hi-lo)/2;
+    if(arr[mid]==mid)lo=mid+1;
+    else{
+        ans=mid;
+        hi=mid-1;
     }
-    cout<<arr[lo];
+   }
+   cout<<ans;
 }
-  

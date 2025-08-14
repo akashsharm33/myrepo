@@ -1,3 +1,1 @@
-string str="1234444";
-    // int x=stoi(str);
-    // cout<<x+1;
+    string arr[]={"0123","0023","456","940","2901"};

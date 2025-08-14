@@ -1,36 +1,27 @@
 #include<iostream>
+#include<vector>
 using namespace std;
-class Student{
-    public:
-    string name;
-    int age;
-    int rno;
-    Student(){
-
-    }
-    Student(string n,int a,int r ){
-        name=n;
-        age=a;
-        rno=r;
-    }
-};
-void print(Student s){
-    cout<<s.name<<" "<<s.age<<" "<<s.rno<<endl;
-}
-void change(Student&c){
-    c.name="Ayush";
-}
 int main(){
-    Student s1("Akash sharma",21,51);
-    Student s2("Aman sharma",20,36);
-    Student s7(s2);
+    int m=5;
+    vector<vector<int>>v;
+    for(int i=1;i<=m;i++){
+        vector<int>a(i);
+        v.push_back(a);
+    }
 
-    
-   
-     print(s1);
-     print(s2);
-     print(s7);
-    //  cout<<s2.name<<" "<<s2.rno<<" "<<s2.age<<endl;
-    
-
+    for(int i=0;i<m;i++){
+        for(int j=0;j<=i;j++){  
+            if(j==0||j==i)v[i][j]=1;
+            else{
+                v[i][j]=v[i-1][j]+v[i-1][j-1];
+            }
+        }
+    }
+    for(int i=0;i<m;i++){
+        for(int j=0;j<=i;j++){
+            cout<<v[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<"here is your code babye 😊😊";
 }
