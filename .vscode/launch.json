@@ -1,17 +1,45 @@
 {
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C++ File",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compile C++ file"
+        },
+        {
+            "label": "Run C++ File",
+            "type": "shell",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "dependsOn": [
+                "Build C++ File"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ],
     "configurations": [
         {
-            "name": "C/C++: gcc.exe build and debug active file",
+            "name": "(gdb) Attach",
             "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
+            "request": "attach",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
+            "miDebuggerPath": "/path/to/gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -23,8 +51,7 @@
                     "text": "-gdb-set disassembly-flavor intel",
                     "ignoreFailures": true
                 }
-            ],
-            "preLaunchTask": "C/C++: gcc.exe build active file"
+            ]
         },
         {
             "name": "C/C++: g++.exe build and debug active file",
@@ -52,6 +79,5 @@
             ],
             "preLaunchTask": "C/C++: g++.exe build active file"
         }
-    ],
-    "version": "2.0.0"
+    ]
 }

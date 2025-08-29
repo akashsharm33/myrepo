@@ -14,7 +14,7 @@ int main(){
         if(s[i]!=s[i+1])count++;
     }
     else if(i==n-1){
-        if(s[i]!=s[i-1])count++;
+        if(s[i-1]!=s[i])count++;
     }
     else if(s[i]!=s[i-1]&&s[i]!=s[i+1])
     count++;

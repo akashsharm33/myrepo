@@ -13,7 +13,7 @@ int main(){
         v.push_back(temp);
     }
     cout<<endl;
-    sort(v.begin(),v.end());
+    sort(v.begin(),v.end());//after sorting same words are together;
     int maxcount=1;
     int count=1;
     for(int i=1;i<v.size();i++){

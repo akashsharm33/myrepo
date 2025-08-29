@@ -3,26 +3,21 @@
 using namespace std;
 int main(){
   string s;
-  getline(cin,s);
-   int n=s.length();
-   int max=0;
-   for(int i=0;i<n;i++){
-    char ch=s[i];
-    int count=1;
-    for(int j=i+1;j<n;j++){
-      if(s[i]==s[j])count++;
-    }
-    if(max<count)max=count;
-   }
+  cout<<"enter the string of the digits";
+  cin>>s;
+  int second =-1,first=-1;
+  for(char ch :s){
+    int d=ch -'0';
 
-
-  for(int i=0;i<n;i++){
-    char ch=s[i];
-    int count=1;
-    for(int j=i+1;j<n;j++){
-      if(s[i]==s[j])count++;
+    if(d>first){
+      second=first;
+     first=d;
     }
-    if(max==count)cout<<ch<<" "<<max<<endl;
-    
+    else if(d>second&&d!=first){
+      second=d;
+    }
   }
+  if(second==-1)cout<<"ther is no second largest element";
+  else cout<<"the largest element is "<<second;
+  cout<<"the largest element is "<<first;
 }
