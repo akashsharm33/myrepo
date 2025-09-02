@@ -1,58 +1,26 @@
 #include<iostream>
-#include<vector>
 #include<algorithm>
+#include<climits>
 using namespace std;
 int main(){
-    int arr[6]={6,5,4,3,2,1};
-    int n=6;
-    int brr[6];
-    for(int i=0;i<n;i++){
-      brr[i]=arr[i];
+  int n;
+  cout<<"enter the size of the array";
+  cin>>n;
+  int arr[n];
+  for(int i=0;i<n;i++){
+    cin>>arr[i];
+  }
+  
+for(int i=1;i<=n-1;i++){
+  int j=i;
+  while(j>=1){
+    if(arr[j]<arr[j-1]){
+      swap(arr[j],arr[j-1]);
+      j--;
     }
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
-    for(int i=0;i<n-1;i++){
-        bool flag=true;//already sorted there 
-        for(int j=0;j<n-1-i;j++){
-            if(arr[j]>arr[j+1]){
-                swap(arr[j],arr[j+1]);
-                flag=false;
-            }
-
-
-        }
-        if(flag==true){//swap didnt happen;
-            break;
-        }
-        
-    }
-    cout<<endl;
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
-    bool flag=true;
-    for(int i=0;i<n;i++){
-      if(i==0){
-        if(brr[i]!=arr[i]&&brr[i]!=arr[i+1]){
-          flag=false;
-          break;
-        }
-      }
-      else if(i==n-1){
-        if(brr[i]!=arr[i]&&brr[i]!=arr[i-1]){
-          flag=false;
-          break;
-        }
-      }
-      else{
-        if(brr[i]!=arr[i]&&brr[i]!=arr[i+1]&&brr[i]!=arr[i-1]){
-          flag=false;
-          break;
-        }
-      }
-    }
-    cout<<endl;
-    cout<<flag;
-
+  }
+}
+ for(int i=0;i<n;i++){
+    cout<<arr[i]<<" ";
+  }
 }

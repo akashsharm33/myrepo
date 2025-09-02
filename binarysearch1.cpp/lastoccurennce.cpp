@@ -16,7 +16,7 @@ int main(){
         break;
        }
        else{//arr[mid-1]=x
-       hi=mid-1;
+       lo=mid+1;
 
        }
     }
