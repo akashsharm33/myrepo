@@ -9,7 +9,6 @@ int main() {
     cin >> s;
 
     int first = -1, second = -1; // to store largest and 2nd largest digits
-
     for (char ch : s) {
         int d = ch - '0'; // convert char to int
 

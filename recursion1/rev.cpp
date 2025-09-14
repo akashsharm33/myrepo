@@ -1,11 +1,15 @@
 #include<iostream>
 using namespace std;
-void print(int n){
-    if(n==0)return;
-    
-    print(n-1);
-    cout<<n<<endl;
-}
+ bool power(int a,int b){
+    if(b==0)return 1;
+    else return a*power(a,b-1);
+ }
 int main(){
-    print(5);
+    int a;
+    cout<<"enter the base";
+    cin>>a;
+    int b;
+    cout<<"enter the expoenent";
+    cin>>b;
+    power(a,b);
 }

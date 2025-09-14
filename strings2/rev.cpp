@@ -1,23 +1,29 @@
 #include<iostream>
 #include<string>
+#include<algorithm>
 using namespace std;
 int main(){
   string s;
-  cout<<"enter the string of the digits";
-  cin>>s;
-  int second =-1,first=-1;
-  for(char ch :s){
-    int d=ch -'0';
-
-    if(d>first){
-      second=first;
-     first=d;
-    }
-    else if(d>second&&d!=first){
-      second=d;
-    }
+  getline(cin,s);
+  int max=0;
+ for(int i=0;i<s.length();i++){
+  char ch=s[i];
+  int count=1;
+  for(int j=i+1;j<s.length();j++){
+    if(s[i]==s[j])count++;
   }
-  if(second==-1)cout<<"ther is no second largest element";
-  else cout<<"the largest element is "<<second;
-  cout<<"the largest element is "<<first;
+  if(max<count)max=count;
 }
+for(int i=0;i<s.length();i++){
+  char ch=s[i];
+  int count=1;
+  for(int j=i+1;j<s.length();j++){
+    if(s[i]==s[j])count++;
+  }
+  if(max==count)cout<<ch<<" "<<max;
+}
+
+
+
+
+ }

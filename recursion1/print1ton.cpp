@@ -1,10 +1,13 @@
 #include<iostream>
 using namespace std;
-void print(int n){
+void print1ton(int n){
     if(n==0)return;
-    cout<<n<<endl;
-    print(n-1);
+    print1ton(n-1);
+    cout<<n<<" ";
 }
 int main(){
-    print(5);
+    int n;
+    cout<<"enter the number";
+    cin>>n;
+    print1ton(n);
 }
