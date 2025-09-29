@@ -3,7 +3,6 @@
 #include<algorithm>
 using namespace std;
 int main(){
- string s="akash";
- cout<<s.substr(1,3);
+   string s="akash";
+   cout<<s.substr(0,2);
 }
-

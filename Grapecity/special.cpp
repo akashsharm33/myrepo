@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cout<<"enter the number of rows";
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        int temp=i;
+        for(int j=1;j<=i;j++){
+            cout<<temp++;
+        }
+        temp-=2;
+        for(int j=1;j<i;j++){
+            cout<<temp--;
+        }
+        cout<<endl;
+
+    }
+}

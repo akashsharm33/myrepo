@@ -4,26 +4,24 @@
 using namespace std;
 int main(){
   string s;
+  cout<<"enter the string of the digits";
   getline(cin,s);
-  int max=0;
- for(int i=0;i<s.length();i++){
-  char ch=s[i];
-  int count=1;
-  for(int j=i+1;j<s.length();j++){
-    if(s[i]==s[j])count++;
+  int first=-1;
+  int second=-1;
+  for(char ch:s){
+    int d=ch-'0';
+
+    if(d>first){
+      first=d;
+      second=first;
+    }
+    else if(d>second && d!=first){
+      second=d;
+    }
+
   }
-  if(max<count)max=count;
+  cout<<"largest digit is"<<first;
+  cout<<"second largest digit is"<<second;
+
+
 }
-for(int i=0;i<s.length();i++){
-  char ch=s[i];
-  int count=1;
-  for(int j=i+1;j<s.length();j++){
-    if(s[i]==s[j])count++;
-  }
-  if(max==count)cout<<ch<<" "<<max;
-}
-
-
-
-
- }
