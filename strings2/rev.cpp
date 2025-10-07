@@ -1,27 +1,21 @@
 #include<iostream>
 #include<string>
-#include<algorithm>
 using namespace std;
+bool is_vowel(char ch){
+  ch=tolower(ch);
+  return(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u');
+
+}
 int main(){
   string s;
-  cout<<"enter the string of the digits";
   getline(cin,s);
-  int first=-1;
-  int second=-1;
+  string result;
+  result="";
   for(char ch:s){
-    int d=ch-'0';
-
-    if(d>first){
-      first=d;
-      second=first;
-    }
-    else if(d>second && d!=first){
-      second=d;
+    if(!is_vowel(ch)){
+      result+=ch;
     }
 
   }
-  cout<<"largest digit is"<<first;
-  cout<<"second largest digit is"<<second;
-
-
+  cout<<"the string without the vowel is"<<result;
 }

@@ -1,19 +1,34 @@
 #include<iostream>
-#include<vector>
-#include<algorithm>
 using namespace std;
-void sortpart(int i,int j,vector<int>&v){
-   sort(v.begin(),v.end());
-}
 int main(){
-    vector<int>v;
-    int k=4;
-    int n=v.size();
-    for(int i=0;i<v.size();i++){
-        cin>>v[i];
+    int n;
+    cout<<"enter the number of lines";
+    cin>>n;
+    int m=n-1;
+    int nsp=1;
+
+    for(int i=1;i<=2*n-1;i++){
+        cout<<"*";
     }
-    sortpart(0,k,v);
-      for(int i=0;i<v.size();i++){
-        cout<<v[i]<<" ";
+    cout<<endl;
+    for(int i=1;i<=m;i++){
+
+        //stars
+        for(int j=1;j<=m+1-i;j++){
+            cout<<"*";
+        }
+     
+        //spaces;
+
+        for(int k=1;k<=nsp;k++){
+            cout<<" ";
+        }
+        nsp+=2;
+        //stars;
+
+        for(int j=1;j<=m+1-i;j++){
+            cout<<"*";
+        }
+        cout<<endl;
     }
 }

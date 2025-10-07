@@ -7,7 +7,7 @@ void display(vector<int>&v){
         cout<<v[i]<<" ";
     }
     cout<<endl;
-    return ;
+    return ;1
 }
 // void reverse(vector<int>&v1){
 //     int i=0;
@@ -47,11 +47,13 @@ int main(){
     // reversepart(0,3,v);
     // display(v);
     //rotate an array;
+    display(v);
+    vector<int>v1;
     int k=2;
-    int n=v.size();
-    reversepart(0,n-k-1,v);
-    reversepart(n-k,n-1,v);
-    reversepart(0,n-1,v);
+    int n=v1.size();
+    reversepart(0,n-k-1,v1);
+    reversepart(n-k,n-1,v1);
+    reversepart(0,n-1,v1);
     display(v);
 
 

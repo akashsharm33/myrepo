@@ -1,15 +1,11 @@
 #include<iostream>
 using namespace std;
-int power(int a,int b){
-    if(b==0)return 1;
-    return a*power(a,b-1);
+void print1ton(int n){
+   if(n==0)return;
+   cout<<n<<endl;
+   print1ton(n-1);
 }
 int main(){
-    int a,b;
-    cout<<"enter the base";
-    cin>>a;
-    cout<<"enter the exponent";
-    cin>>b;
-    cout<<power(a,b);
+
+    print1ton(6);
 }
-  
